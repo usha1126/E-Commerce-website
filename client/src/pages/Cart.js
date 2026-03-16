@@ -2,13 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import {
-  TrashIcon,
-  MinusIcon,
-  PlusIcon,
-  ArrowLeftIcon,
-  CreditCardIcon,
-} from '@heroicons/react/24/outline';
+import { FaTrash, FaMinus, FaPlus, FaArrowLeft, FaCreditCard } from 'react-icons/fa';
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateCartItem, getCartTotal, clearCart } = useCart();
@@ -79,7 +73,7 @@ const Cart = () => {
           to="/products"
           className="inline-flex items-center text-gray-600 hover:text-gray-900"
         >
-          <ArrowLeftIcon className="h-5 w-5 mr-2" />
+          <FaArrowLeft className="h-5 w-5 mr-2" />
           Continue Shopping
         </Link>
       </div>
@@ -127,7 +121,7 @@ const Cart = () => {
                         onClick={() => handleQuantityChange(item._id, (item.quantity || 1) - 1)}
                         className="p-1 rounded-md hover:bg-gray-100"
                       >
-                        <MinusIcon className="h-4 w-4" />
+                        <FaMinus className="h-4 w-4" />
                       </button>
                       
                       <span className="w-12 text-center">{item.quantity || 1}</span>
@@ -136,7 +130,7 @@ const Cart = () => {
                         onClick={() => handleQuantityChange(item._id, (item.quantity || 1) + 1)}
                         className="p-1 rounded-md hover:bg-gray-100"
                       >
-                        <PlusIcon className="h-4 w-4" />
+                        <FaPlus className="h-4 w-4" />
                       </button>
                     </div>
 
@@ -148,7 +142,7 @@ const Cart = () => {
                         onClick={() => removeFromCart(item._id)}
                         className="text-red-600 hover:text-red-800 mt-2"
                       >
-                        <TrashIcon className="h-5 w-5" />
+                        <FaTrash className="h-5 w-5" />
                       </button>
                     </div>
                   </div>
@@ -197,7 +191,7 @@ const Cart = () => {
                 onClick={handleCheckout}
                 className="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
               >
-                <CreditCardIcon className="h-5 w-5 mr-2" />
+                <FaCreditCard className="h-5 w-5 mr-2" />
                 Proceed to Checkout
               </button>
               
@@ -205,7 +199,7 @@ const Cart = () => {
                 onClick={clearCart}
                 className="w-full flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 hover:bg-gray-50"
               >
-                <TrashIcon className="h-5 w-5 mr-2" />
+                <FaTrash className="h-5 w-5 mr-2" />
                 Clear Cart
               </button>
             </div>
