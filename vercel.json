@@ -7,23 +7,12 @@
       "config": {
         "distDir": "build"
       }
-    },
-    {
-      "src": "server-socket.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/server-socket.js"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/client/build/$1"
+      "dest": "/client/$1"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
